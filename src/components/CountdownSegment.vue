@@ -7,9 +7,9 @@ defineProps({
 <template>
   <div class="segment text-center">
     <div class="pt-10 overflow-hidden relative">
-      <transition>
+      <Transition>
         <span :key="number" class="numbers text-green absolute top-0 left-[50%]">{{ number }}</span>
-      </transition>
+      </Transition>
     </div>
 
     <span class="label block pt-2">{{ label }}</span>
@@ -26,22 +26,23 @@ defineProps({
 .label {
   font-size: 16px;
 }
+
 .v-enter-active,
 .v-leave-active {
   transition: all 0.5s ease;
+  transform: translateY(0);
 }
+
 .v-enter-from {
-  transform: translateY(-100%) translateX(-50%);
+  transform: translate(-50%, -100%);
 }
+
 .v-leave-to {
-  transform: translateY(100%) translateX(-50%);
+  transform: translate(-50%, 100%);
 }
+
 .v-enter-to,
 .v-leave-from {
-  transform: translateY(0px) translateX(-50%);
-}
-.v-enter-from,
-.v-leave-to {
-  /* opacity: 0; */
+  transform: translate(-50%, 0);
 }
 </style>
